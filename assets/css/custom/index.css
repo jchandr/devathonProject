@@ -6,7 +6,8 @@ body {
 .container {
   width: 70%;
   position: absolute;
-  left: 15%;
+  left: 20%;
+  top: 20%;
 }
 
 .page-heading {
@@ -23,29 +24,146 @@ body {
 }
 
 .products {
-  margin-top: 40px;
-  background: inherit;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(3, 15vw);
+  grid-template-rows: repeat(2, 15vw);
+}
+
+.product {
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+  grid-template-rows: repeat(2,auto);
+  background-color: white;
+  grid-gap: 10px;
+}
+
+.product .product-detail:nth-child(x) {
+  grid-row: (x%2);
+  grid-column: (x/2);
+  z-index: 1;
+}
+
+.product .product-detail:nth-child(1) {
+}
+.product .product-detail:nth-child(2) {
+}
+.product .product-detail:nth-child(3) {
+}
+.product .product-detail:nth-child(4) {
+}
+
+.product .product-detail-hidden {
+  visibility: hidden;
+}
+
+.product .product-detail-visible {
+  outline-style: solid;
+  outline-width: 10px;
+  outline-color: white;
+  visibility: visible;
+}
+.products .product:nth-child(x) {
+  grid-row: (x%3);
+  grid-column: (x/3);
+}
+
+.products {
+  padding: 1em 0;
+  justify-content: center;
+}
+
+.products .product {
+  background: #eaeaea;
+}
+
+.product .product-detail {
+  text-align: center;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  z-index: 1;
 }
 
-.products .product-tile {
+.product .product-extended-info {
   background: white;
-  width: 250px;
-  margin: 20px;
+  width: 100%;
+  visibility: hidden;
+  height: 240px;
+  text-align: left;
 }
 
-.product-tile .products-image {
+.product .product-extended-info .input-group label {
+  color: #d7d7d8;
+  font-size: 12px;
 }
 
-.product-tile .product-short-info {
-  min-height: 40px;
+.product .product-extended-info .input-group input {
+  color: #d7d7d8;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  vertical-align: top;
+  width: 100%;
+}
+
+.product .product-extended-info .input-group select {
+  width: 100%;
+  background: inherit;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: #d7d7d8;
+}
+
+.product .product-extended-info .input-group select:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.product .product-extended-info .input-group input::placeholder {
+  color: #cecece;
+}
+
+
+.product .product-extended-info .input-group i {
+  margin-right: 3px;
+}
+
+.product .product-extended-info .input-group input:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.product .product-extended-info .seperator {
+  height: 2px;
+  background-color: #F5F5F7;
+  width: 100%;
+}
+
+.product .product-detail .product-no-extra-photos {
+  background: white;
   padding: 10px;
-  color: #CACFD8;
+  background: #d4f2ff;
+  width: 14vw;
+}
+.product .product-detail .product-no-extra-photos img {
+  width: 100%;
+  opacity: 0.1;
 }
 
-.product-tile .product-info-seperator {
+.product .product-detail .product-image img{
+   width: 15vw;
+   height: 15vw;
+}
+
+.product .product-detail .product-short-info {
+  color: #CACFD8;
+  background-color: white;
+  padding: 10px;
+}
+
+.product-short-info .product-info-seperator {
   width: 100%;
   background-color: #e8e8e8;
   height: 1px;
@@ -53,10 +171,41 @@ body {
 
 .product-short-info .product-title {
   color: #CACFD8;
-  margin-bottom: 5px;
+  text-align: left;
 }
 
 .product-short-info .product-price {
   color: #CACFD8;
-  margin-top: 5px;
+  text-align: left;
+}
+
+.product .product-detail .product-variations {
+  height: 240px;
+  width: 100%;
+  background: white;
+}
+
+.product .product-detail .product-variations .no-product-variation {
+  margin-top: 45%;
+}
+
+.product .product-detail .product-variations .no-product-variation p {
+  color: #e8e8e8;
+  font-size: 13px;
+}
+
+.product .product-detail .product-variations .no-product-variation .plus-box{
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  margin-left: 37%;
+  display: block;
+  border-color: #dfdfe0;
+}
+
+.product .product-detail .product-variations .no-product-variation .plus-box i {
+  margin: 17px;
+  color: #dfdfe0;
 }
